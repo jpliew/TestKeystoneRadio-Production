@@ -141,6 +141,9 @@ Public Class Form1
         Dim freq As SByte
         Dim presetchannel As Long
         'Dim doublefreq As Double
+        Dim ServiceComponentID As Byte
+        Dim ServiceID As UInt32
+        Dim EnsembleID As UInt16
 
         Do
             If StopThread Then
@@ -276,7 +279,6 @@ Public Class Form1
                 ScrollStatic = True
 
                 If DABAutoSearch(0, 40) = True Then
-                    'ClearDatabase()
                     programNameText = "Please Wait"
                     programRadioText = "Searching DAB channels..."
                     programtype = 0
@@ -284,11 +286,11 @@ Public Class Form1
 
                     radiostatus = GetPlayStatus
                     While radiostatus = 1
-                        '                        Thread.Sleep(50)
+                        'Thread.Sleep(50)
                         radiostatus = GetPlayStatus
                         If radiostatus = 1 Then
                             freq = GetFrequency()
-#If debug Then
+#If DEBUG Then
                             Debug.Print("Freq=" & freq)
 #End If
                             If freq > -1 Then
@@ -352,8 +354,6 @@ Public Class Form1
                     radiostatus = GetPlayStatus
                 End If
             End If
-
- 
 
             'If NeedRadioMode Then
             'radiomode = GetPlayMode()
@@ -475,14 +475,21 @@ Public Class Form1
                         'Debug.Print(Now.Millisecond.ToString)
 
                         Dim objWriter As New System.IO.StreamWriter("stations.txt")
-
+                        objWriter.WriteLine("ServiceComponentID, ServiceID, EnsembleID, StationName")
                         For i = 0 To totalDABProgram - 1
                             programName = Space(400)
                             If GetProgramName(0, i, 1, programName) = True Then
                                 DABList(i) = Trim(programName)
-                                objWriter.WriteLine(DABList(i))
+
+                                If GetProgramInfo(i, ServiceComponentID, ServiceID, EnsembleID) Then
+                                    objWriter.WriteLine(Hex(ServiceComponentID) & "," & Hex(ServiceID) & "," & Hex(EnsembleID) & "," & DABList(i))
+                                Else
+                                    objWriter.WriteLine("x,x,x," & DABList(i))
+                                End If
+
                             End If
                         Next
+
                         objWriter.Close()
 
                         'Debug.Print(Now.Millisecond.ToString)

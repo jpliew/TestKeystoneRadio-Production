@@ -26,6 +26,7 @@
     Declare Unicode Function GetPreset Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal presetindex As SByte) As Int32
     Declare Unicode Function SetPreset Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal presetindex As SByte, ByVal channel As Int32) As Boolean
     Declare Function DABAutoSearch Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal startindex As Byte, ByVal endindex As Byte) As Boolean
+    Declare Function DABAutoSearchNoClear Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal startindex As Byte, ByVal endindex As Byte) As Boolean
     Declare Unicode Function GetEnsembleName Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal dabIndex As Int32, ByVal namemode As SByte, ByVal programName As String) As Boolean
     Declare Function GetDataRate Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Int16
     Declare Function SetStereoMode Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte) As Boolean
@@ -42,6 +43,8 @@
     Declare Function GetApplicationType Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal index As Int32) As SByte
     Declare Sub MotReset Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
+    Declare Function GetProgramInfo Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean
+
 
 #Else
     Declare Function CommVersion Lib "keystonecomm.dll" () As Int32
@@ -69,6 +72,7 @@
     Declare Unicode Function GetPreset Lib "keystonecomm.dll" (ByVal mode As SByte, ByVal presetindex As SByte) As Int32
     Declare Unicode Function SetPreset Lib "keystonecomm.dll" (ByVal mode As SByte, ByVal presetindex As SByte, ByVal channel As Int32) As Boolean
     Declare Function DABAutoSearch Lib "keystonecomm.dll" (ByVal startindex As Byte, ByVal endindex As Byte) As Boolean
+    Declare Function DABAutoSearchNoClear Lib "keystonecomm.dll" (ByVal startindex As Byte, ByVal endindex As Byte) As Boolean
     Declare Unicode Function GetEnsembleName Lib "keystonecomm.dll" (ByVal dabIndex As Int32, ByVal namemode As SByte, ByVal programName As String) As Boolean
     Declare Function GetDataRate Lib "keystonecomm.dll" () As Int16
     Declare Function SetStereoMode Lib "keystonecomm.dll" (ByVal mode As SByte) As Boolean
@@ -85,7 +89,7 @@
     Declare Function GetApplicationType Lib "keystonecomm.dll" (ByVal index As Int32) As SByte
     Declare Sub MotReset Lib "keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "keystonecomm.dll" () As SByte
-
+    Declare Function GetProgramInfo Lib "keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean
 #End If
 
 End Module
