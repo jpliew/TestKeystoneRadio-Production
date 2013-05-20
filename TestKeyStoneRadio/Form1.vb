@@ -18,6 +18,7 @@ Public Class Form1
     Public Const TOGGLESTEREO As SByte = 10
     Public Const BBEEQ As Byte = 11
     Public Const HEADRM As Byte = 12
+    Public Const SYNCRADIOCLOCK As Byte = 13
 
     Public Const MOT_HEADER_MODE As SByte = 0
     Public Const MOT_DIRECTORY_MODE As SByte = 1
@@ -95,6 +96,7 @@ Public Class Form1
     Private NeedEnsemble As Boolean = True
     Private NeedProgramType As Boolean = True
     Private NeedRadioMode As Boolean = True
+    Private NeedSyncClock As Boolean = False
 
 
     Private DABLastPlayed As Long = 0
@@ -144,6 +146,7 @@ Public Class Form1
         Dim ServiceComponentID As Byte
         Dim ServiceID As UInt32
         Dim EnsembleID As UInt16
+        Dim sec, min, hour, day, month, year As Byte
 
         Do
             If StopThread Then
@@ -260,6 +263,9 @@ Public Class Form1
                     Case 12
                         SetHeadroom(Math.Abs(SetHR))
                         HeadRoom = SetHR
+                    Case 13
+                        SyncRTC(True)
+                        NeedSyncClock = True
                 End Select
 
                 RadioCommand = -1
@@ -327,6 +333,15 @@ Public Class Form1
             programtype = GetProgramType(radiomode, channel)
             radiostatus = GetPlayStatus()
 
+            If NeedSyncClock Then
+                If GetRTC(sec, min, hour, day, month, year) Then
+
+                    SyncRTC(False)
+                    NeedSyncClock = False
+                    Debug.Print(hour & ":" & min & ":" & sec & "   " & day & "/" & month & "/" & year)
+                End If
+            End If
+
             If firstOpen Then
                 ' Get the status of BBE
                 GetBBEEQ(BBEOn, EQMode, BBELo, BBEHi, BBECFreq, BBEMachFreq, BBEMachGain, BBEMachQ, BBESurr, BBEMp, BBEHpF, BBEHiMode)
@@ -354,23 +369,6 @@ Public Class Form1
                     radiostatus = GetPlayStatus
                 End If
             End If
-
-            'If NeedRadioMode Then
-            'radiomode = GetPlayMode()
-            'If radiomode > -1 Then
-            'NeedRadioMode = False
-            'End If
-            'End If
-
-            'If NeedProgramType Then
-            'programtype = GetProgramType(radiomode, channel)
-            'If programtype > 0 Then
-            'NeedProgramType = False
-            'End If
-            'End If
-
-
-            'Debug.Print(StereoStatus)
 
             If radiomode <> -1 And channel <> -1 Then
                 If radiomode = 0 Then
@@ -405,9 +403,15 @@ Public Class Form1
                     Else
                         ensembleName = ""
                     End If
-
-
                 End If
+
+#If DEBUG Then
+                If NeedProgramType Then
+                    Debug.Print("Service Comp Type=" & (GetServCompType(channel)))
+                    NeedProgramType = False
+                End If
+#End If
+
 
                 If DataRate < 1 Then
                     DataRate = GetDataRate()
@@ -919,6 +923,7 @@ Public Class Form1
     Private Sub Button5_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
         MsgBox(IsSysReady())
     End Sub
+
     Private Sub UpdateFMPresetButtons()
         Dim temp As Int32
         Dim i As SByte
@@ -949,7 +954,6 @@ Public Class Form1
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         StatusUpdate()
     End Sub
-
 
     Private Sub ListBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ListBox1.SelectedIndexChanged
         If lblProgramName.Text = "CONFIG" Then
@@ -1484,5 +1488,9 @@ Public Class Form1
 
     Private Sub PictureBox1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PictureBox1.Click
         ImageFilename = ""
+    End Sub
+
+    Private Sub Button3_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        RadioCommand = SYNCRADIOCLOCK
     End Sub
 End Class

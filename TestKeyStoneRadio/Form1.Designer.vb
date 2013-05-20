@@ -63,6 +63,8 @@ Partial Class Form1
         Me.btnPreset0 = New System.Windows.Forms.Button
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
+        Me.Button3 = New System.Windows.Forms.Button
+        Me.lblRadioClock = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
         CType(Me.imgStereo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgVolume, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -152,6 +154,7 @@ Partial Class Form1
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.Black
+        Me.Panel1.Controls.Add(Me.lblRadioClock)
         Me.Panel1.Controls.Add(Me.lblSLS)
         Me.Panel1.Controls.Add(Me.lblDataRate)
         Me.Panel1.Controls.Add(Me.lblEnsemble)
@@ -340,7 +343,7 @@ Partial Class Form1
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.Location = New System.Drawing.Point(16, 394)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(156, 56)
+        Me.Button1.Size = New System.Drawing.Size(75, 56)
         Me.Button1.TabIndex = 34
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -516,12 +519,34 @@ Partial Class Form1
         Me.PictureBox1.TabStop = False
         Me.PictureBox1.Visible = False
         '
+        'Button3
+        '
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button3.Image = CType(resources.GetObject("Button3.Image"), System.Drawing.Image)
+        Me.Button3.Location = New System.Drawing.Point(97, 394)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 56)
+        Me.Button3.TabIndex = 47
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'lblRadioClock
+        '
+        Me.lblRadioClock.AutoSize = True
+        Me.lblRadioClock.Font = New System.Drawing.Font("Score Board", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRadioClock.ForeColor = System.Drawing.Color.Gray
+        Me.lblRadioClock.Location = New System.Drawing.Point(479, 87)
+        Me.lblRadioClock.Name = "lblRadioClock"
+        Me.lblRadioClock.Size = New System.Drawing.Size(161, 17)
+        Me.lblRadioClock.TabIndex = 47
+        Me.lblRadioClock.Text = "00:00:00 00/00/00"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlText
         Me.ClientSize = New System.Drawing.Size(669, 466)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.btnPreset8)
         Me.Controls.Add(Me.btnPreset9)
@@ -597,5 +622,7 @@ Partial Class Form1
     Friend WithEvents lblDataRate As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents lblSLS As System.Windows.Forms.Label
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents lblRadioClock As System.Windows.Forms.Label
 
 End Class

@@ -44,6 +44,9 @@
     Declare Sub MotReset Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
     Declare Function GetProgramInfo Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean
+    Declare Function GetServCompType Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal index As Int32) As SByte
+    Declare Function SyncRTC Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal sync As Boolean) As Boolean
+    Declare Function GetRTC Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
 
 
 #Else
@@ -90,6 +93,9 @@
     Declare Sub MotReset Lib "keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "keystonecomm.dll" () As SByte
     Declare Function GetProgramInfo Lib "keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean
+    Declare Function GetServCompType Lib "keystonecomm.dll" (ByVal index As Int32) As SByte
+    Declare Function SyncRTC Lib "keystonecomm.dll" (ByVal sync As Boolean) As Boolean
+    Declare Function GetRTC Lib "keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
 #End If
 
 End Module
