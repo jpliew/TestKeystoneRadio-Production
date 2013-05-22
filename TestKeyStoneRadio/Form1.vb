@@ -97,7 +97,7 @@ Public Class Form1
     Private NeedProgramType As Boolean = True
     Private NeedRadioMode As Boolean = True
     Private NeedSyncClock As Boolean = False
-
+    Private IsClockSync As Boolean = False
 
     Private DABLastPlayed As Long = 0
     Private FMLastPlayed As Long = 0
@@ -138,7 +138,7 @@ Public Class Form1
     Private strDebug As String
 
     Private Sub ThreadTask()
-
+        Dim newDT As SYSTEMTIME
         Dim presettemp As Integer
         Dim freq As SByte
         Dim presetchannel As Long
@@ -264,7 +264,9 @@ Public Class Form1
                         SetHeadroom(Math.Abs(SetHR))
                         HeadRoom = SetHR
                     Case 13
-                        SyncRTC(True)
+                        If (Not IsClockSync) Then
+                            SyncRTC(True)
+                        End If
                         NeedSyncClock = True
                 End Select
 
@@ -335,10 +337,22 @@ Public Class Form1
 
             If NeedSyncClock Then
                 If GetRTC(sec, min, hour, day, month, year) Then
+                    With newDT
+                        .Second = sec
+                        .Minute = min
+                        .Hour = hour
+                        .Day = day
+                        .Month = month
+                        .Year = 2000 + year
+                    End With
 
-                    SyncRTC(False)
+                    SetLocalTime(newDT)     ' Set System local time based on the RTC time from radio module
+                    IsClockSync = True
+                    SyncRTC(False)          ' No need sync anymore because the sync will reset SECONDS to zero each time it is synced
                     NeedSyncClock = False
+#If DEBUG Then
                     Debug.Print(hour & ":" & min & ":" & sec & "   " & day & "/" & month & "/" & year)
+#End If
                 End If
             End If
 
@@ -818,8 +832,6 @@ Public Class Form1
     End Sub
 
     Public Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-
-
         Timer1.Enabled = False
 
         lblProgramName.Text = "RADIO Power"
@@ -1492,5 +1504,12 @@ Public Class Form1
 
     Private Sub Button3_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
         RadioCommand = SYNCRADIOCLOCK
+    End Sub
+
+    Private Sub Timer4_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer4.Tick
+        If IsClockSync Then
+            lblRadioClock.ForeColor = Color.Green
+        End If
+        lblRadioClock.Text = DateTime.Now.ToString("HH:mm:ss dd/MM/yy")
     End Sub
 End Class

@@ -33,6 +33,7 @@ Partial Class Form1
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.ListBox1 = New System.Windows.Forms.ListBox
         Me.Panel1 = New System.Windows.Forms.Panel
+        Me.lblRadioClock = New System.Windows.Forms.Label
         Me.lblSLS = New System.Windows.Forms.Label
         Me.lblDataRate = New System.Windows.Forms.Label
         Me.lblEnsemble = New System.Windows.Forms.Label
@@ -64,7 +65,7 @@ Partial Class Form1
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox
         Me.Button3 = New System.Windows.Forms.Button
-        Me.lblRadioClock = New System.Windows.Forms.Label
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.imgStereo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgVolume, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,6 +173,17 @@ Partial Class Form1
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(640, 129)
         Me.Panel1.TabIndex = 33
+        '
+        'lblRadioClock
+        '
+        Me.lblRadioClock.AutoSize = True
+        Me.lblRadioClock.Font = New System.Drawing.Font("Score Board", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRadioClock.ForeColor = System.Drawing.Color.Gray
+        Me.lblRadioClock.Location = New System.Drawing.Point(479, 87)
+        Me.lblRadioClock.Name = "lblRadioClock"
+        Me.lblRadioClock.Size = New System.Drawing.Size(161, 17)
+        Me.lblRadioClock.TabIndex = 47
+        Me.lblRadioClock.Text = "00:00:00 00/00/00"
         '
         'lblSLS
         '
@@ -529,16 +541,10 @@ Partial Class Form1
         Me.Button3.TabIndex = 47
         Me.Button3.UseVisualStyleBackColor = True
         '
-        'lblRadioClock
+        'Timer4
         '
-        Me.lblRadioClock.AutoSize = True
-        Me.lblRadioClock.Font = New System.Drawing.Font("Score Board", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblRadioClock.ForeColor = System.Drawing.Color.Gray
-        Me.lblRadioClock.Location = New System.Drawing.Point(479, 87)
-        Me.lblRadioClock.Name = "lblRadioClock"
-        Me.lblRadioClock.Size = New System.Drawing.Size(161, 17)
-        Me.lblRadioClock.TabIndex = 47
-        Me.lblRadioClock.Text = "00:00:00 00/00/00"
+        Me.Timer4.Enabled = True
+        Me.Timer4.Interval = 1000
         '
         'Form1
         '
@@ -624,5 +630,6 @@ Partial Class Form1
     Friend WithEvents lblSLS As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents lblRadioClock As System.Windows.Forms.Label
+    Friend WithEvents Timer4 As System.Windows.Forms.Timer
 
 End Class

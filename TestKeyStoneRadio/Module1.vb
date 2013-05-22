@@ -1,4 +1,18 @@
 ﻿Module Module1
+
+    Structure SYSTEMTIME
+        Public Year As Short
+        Public Month As Short
+        Public DayOfWeek As Short
+        Public Day As Short
+        Public Hour As Short
+        Public Minute As Short
+        Public Second As Short
+        Public Milliseconds As Short
+    End Structure
+
+    Declare Function SetLocalTime Lib "kernel32.dll" (ByRef lpSystemTime As SYSTEMTIME) As Boolean
+
 #If DEBUG Then
     ' Point the DLL to the KeyStoneCOMM DLL Debug folder if you wish to debug both DLL and VB app at the same time.
     Declare Function CommVersion Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Int32
