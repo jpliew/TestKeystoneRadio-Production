@@ -117,6 +117,7 @@ Public Class Form1
     Private ToPrevStream As Boolean = False
     Private FoundNewSlideShow As Boolean = False
     Private DataRate As Int16
+    Private SamplingRate As Int16
     Private intendedVolume As SByte = 0
     Private StereoStatus As SByte = -1
     'Private freqindex() As Double = _
@@ -173,6 +174,7 @@ Public Class Form1
                         NeedEnsemble = True
                         NeedProgramType = True
                         DataRate = 0
+                        SamplingRate = 0
                         currentAppType = KSApplicationType_UNKNOWN
                         NextStream()
                     Case 1
@@ -180,6 +182,7 @@ Public Class Form1
                         NeedEnsemble = True
                         NeedProgramType = True
                         DataRate = 0
+                        SamplingRate = 0
                         currentAppType = KSApplicationType_UNKNOWN
                         PrevStream()
                     Case 2
@@ -188,6 +191,7 @@ Public Class Form1
                         NeedRadioMode = True
                         NeedProgramType = True
                         DataRate = 0
+                        SamplingRate = 0
                         currentAppType = KSApplicationType_UNKNOWN
                         Timer3.Enabled = True
                         PlayStream(0, DABLastPlayed)
@@ -197,6 +201,7 @@ Public Class Form1
                         NeedRadioMode = True
                         NeedProgramType = True
                         DataRate = 0
+                        SamplingRate = 0
                         currentAppType = KSApplicationType_UNKNOWN
                         If FMLastPlayed = 0 Then
                             PlayStream(1, 94500)
@@ -217,6 +222,7 @@ Public Class Form1
                         NeedProgramType = True
                         NeedRadioMode = True
                         DataRate = 0
+                        SamplingRate = 0
                         currentAppType = KSApplicationType_UNKNOWN
                         PlayStream(0, RadioCommandData)
                     Case 8
@@ -225,6 +231,7 @@ Public Class Form1
                         NeedRadioMode = True
                         NeedProgramType = True
                         DataRate = 0
+                        SamplingRate = 0
                         currentAppType = KSApplicationType_UNKNOWN
                         presetchannel = GetPreset(radiomode, RadioCommandData)
                         PlayStream(radiomode, presetchannel)
@@ -280,6 +287,7 @@ Public Class Form1
                 NeedRadioMode = True
                 NeedProgramType = True
                 DataRate = 0
+                SamplingRate = 0
                 currentAppType = KSApplicationType_UNKNOWN
 
                 programNameText = "Please Wait"
@@ -434,10 +442,21 @@ Public Class Form1
 #End If
                     If DataRate < 0 Then DataRate = 0
                 End If
+
+                If SamplingRate < 1 Then
+                    SamplingRate = GetSamplingRate()
+#If DEBUG Then
+                    Debug.Print("Sampling Rate=" & SamplingRate)
+#End If
+                    If SamplingRate < 0 Then SamplingRate = 0
+                End If
+
+
             Else
                 ensembleName = ""
                 NeedEnsemble = True
                 DataRate = 0
+                SamplingRate = 0
             End If
 
             If firstOpen Then
@@ -474,11 +493,13 @@ Public Class Form1
                     End If
 
                     DataRate = GetDataRate()
+                    SamplingRate = GetSamplingRate()
                     If DataRate < 0 Then DataRate = 0
 
                 Else
                     ensembleName = ""
                     DataRate = 0
+                    SamplingRate = 0
                 End If
 
                 radiomode = GetPlayMode()
@@ -594,7 +615,7 @@ Public Class Form1
 
         If radiostatus = 0 Then
             If DataRate > 0 Then
-                lblDataRate.Text = DataRate & "kbps"
+                lblDataRate.Text = DataRate & "/" & SamplingRate
             Else
                 lblDataRate.Text = ""
             End If

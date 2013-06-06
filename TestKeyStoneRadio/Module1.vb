@@ -61,7 +61,7 @@
     Declare Function GetServCompType Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal index As Int32) As SByte
     Declare Function SyncRTC Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal sync As Boolean) As Boolean
     Declare Function GetRTC Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
-
+    Declare Function GetSamplingRate Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Int16
 
 #Else
     Declare Function CommVersion Lib "keystonecomm.dll" () As Int32
@@ -110,6 +110,7 @@
     Declare Function GetServCompType Lib "keystonecomm.dll" (ByVal index As Int32) As SByte
     Declare Function SyncRTC Lib "keystonecomm.dll" (ByVal sync As Boolean) As Boolean
     Declare Function GetRTC Lib "keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
+    Declare Function GetSamplingRate Lib "keystonecomm.dll" () As Int16
 #End If
 
 End Module
