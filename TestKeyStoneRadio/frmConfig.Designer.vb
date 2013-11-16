@@ -109,8 +109,8 @@ Partial Class frmConfig
         '
         'Button2
         '
-        Me.Button2.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button2.Font = New System.Drawing.Font("Century Gothic", 8.0!, System.Drawing.FontStyle.Bold)
         Me.Button2.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Button2.Location = New System.Drawing.Point(492, 266)
         Me.Button2.Name = "Button2"
@@ -121,8 +121,8 @@ Partial Class frmConfig
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 8.0!, System.Drawing.FontStyle.Bold)
         Me.Button1.Location = New System.Drawing.Point(605, 266)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(50, 56)
@@ -132,8 +132,8 @@ Partial Class frmConfig
         '
         'Button3
         '
-        Me.Button3.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button3.Font = New System.Drawing.Font("Century Gothic", 8.0!, System.Drawing.FontStyle.Bold)
         Me.Button3.Location = New System.Drawing.Point(492, 328)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(50, 56)
@@ -143,8 +143,8 @@ Partial Class frmConfig
         '
         'Button4
         '
-        Me.Button4.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button4.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button4.Font = New System.Drawing.Font("Century Gothic", 8.0!, System.Drawing.FontStyle.Bold)
         Me.Button4.Location = New System.Drawing.Point(548, 328)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(50, 56)
@@ -154,8 +154,8 @@ Partial Class frmConfig
         '
         'Button5
         '
-        Me.Button5.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button5.Font = New System.Drawing.Font("Century Gothic", 8.0!, System.Drawing.FontStyle.Bold)
         Me.Button5.Location = New System.Drawing.Point(605, 328)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(50, 56)
@@ -176,8 +176,8 @@ Partial Class frmConfig
         '
         'Button6
         '
-        Me.Button6.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button6.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button6.Font = New System.Drawing.Font("Century Gothic", 8.0!, System.Drawing.FontStyle.Bold)
         Me.Button6.Location = New System.Drawing.Point(492, 390)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(50, 56)
@@ -187,8 +187,9 @@ Partial Class frmConfig
         '
         'Button7
         '
-        Me.Button7.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button7.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button7.Font = New System.Drawing.Font("Century Gothic", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.Button7.ForeColor = System.Drawing.Color.Black
         Me.Button7.Location = New System.Drawing.Point(548, 390)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(107, 56)
@@ -231,6 +232,8 @@ Partial Class frmConfig
         Me.GroupBox1.Controls.Add(Me.trkBBEHi)
         Me.GroupBox1.Controls.Add(Me.lblBBELo)
         Me.GroupBox1.Controls.Add(Me.trkBBELo)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Me.GroupBox1.ForeColor = System.Drawing.Color.White
         Me.GroupBox1.Location = New System.Drawing.Point(12, 21)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(456, 431)
@@ -240,7 +243,7 @@ Partial Class frmConfig
         '
         'Label9
         '
-        Me.Label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label9.ForeColor = System.Drawing.Color.White
         Me.Label9.Location = New System.Drawing.Point(402, 25)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(42, 26)
@@ -250,7 +253,7 @@ Partial Class frmConfig
         'lblHeadroom
         '
         Me.lblHeadroom.AutoSize = True
-        Me.lblHeadroom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblHeadroom.ForeColor = System.Drawing.Color.White
         Me.lblHeadroom.Location = New System.Drawing.Point(402, 60)
         Me.lblHeadroom.Name = "lblHeadroom"
         Me.lblHeadroom.Size = New System.Drawing.Size(25, 13)
@@ -280,7 +283,7 @@ Partial Class frmConfig
         '
         'Label7
         '
-        Me.Label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label7.ForeColor = System.Drawing.Color.White
         Me.Label7.Location = New System.Drawing.Point(325, 25)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(36, 26)
@@ -290,7 +293,7 @@ Partial Class frmConfig
         'lblBBEHpF
         '
         Me.lblBBEHpF.AutoSize = True
-        Me.lblBBEHpF.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBEHpF.ForeColor = System.Drawing.Color.White
         Me.lblBBEHpF.Location = New System.Drawing.Point(327, 60)
         Me.lblBBEHpF.Name = "lblBBEHpF"
         Me.lblBBEHpF.Size = New System.Drawing.Size(25, 13)
@@ -313,7 +316,7 @@ Partial Class frmConfig
         '
         'Label15
         '
-        Me.Label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label15.ForeColor = System.Drawing.Color.White
         Me.Label15.Location = New System.Drawing.Point(367, 25)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(42, 26)
@@ -323,7 +326,7 @@ Partial Class frmConfig
         'lblBBEHiMode
         '
         Me.lblBBEHiMode.AutoSize = True
-        Me.lblBBEHiMode.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBEHiMode.ForeColor = System.Drawing.Color.White
         Me.lblBBEHiMode.Location = New System.Drawing.Point(367, 60)
         Me.lblBBEHiMode.Name = "lblBBEHiMode"
         Me.lblBBEHiMode.Size = New System.Drawing.Size(25, 13)
@@ -333,7 +336,7 @@ Partial Class frmConfig
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label13.ForeColor = System.Drawing.Color.White
         Me.Label13.Location = New System.Drawing.Point(288, 34)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(23, 13)
@@ -343,7 +346,7 @@ Partial Class frmConfig
         'lblBBEMp
         '
         Me.lblBBEMp.AutoSize = True
-        Me.lblBBEMp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBEMp.ForeColor = System.Drawing.Color.White
         Me.lblBBEMp.Location = New System.Drawing.Point(287, 60)
         Me.lblBBEMp.Name = "lblBBEMp"
         Me.lblBBEMp.Size = New System.Drawing.Size(25, 13)
@@ -362,7 +365,7 @@ Partial Class frmConfig
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label11.ForeColor = System.Drawing.Color.White
         Me.Label11.Location = New System.Drawing.Point(248, 34)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(26, 13)
@@ -372,7 +375,7 @@ Partial Class frmConfig
         'lblBBESurr
         '
         Me.lblBBESurr.AutoSize = True
-        Me.lblBBESurr.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBESurr.ForeColor = System.Drawing.Color.White
         Me.lblBBESurr.Location = New System.Drawing.Point(247, 60)
         Me.lblBBESurr.Name = "lblBBESurr"
         Me.lblBBESurr.Size = New System.Drawing.Size(25, 13)
@@ -390,7 +393,7 @@ Partial Class frmConfig
         '
         'Label5
         '
-        Me.Label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label5.ForeColor = System.Drawing.Color.White
         Me.Label5.Location = New System.Drawing.Point(208, 25)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(34, 31)
@@ -400,7 +403,7 @@ Partial Class frmConfig
         'lblBBEMachQ
         '
         Me.lblBBEMachQ.AutoSize = True
-        Me.lblBBEMachQ.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBEMachQ.ForeColor = System.Drawing.Color.White
         Me.lblBBEMachQ.Location = New System.Drawing.Point(212, 60)
         Me.lblBBEMachQ.Name = "lblBBEMachQ"
         Me.lblBBEMachQ.Size = New System.Drawing.Size(13, 13)
@@ -419,7 +422,7 @@ Partial Class frmConfig
         '
         'Label8
         '
-        Me.Label8.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label8.ForeColor = System.Drawing.Color.White
         Me.Label8.Location = New System.Drawing.Point(167, 25)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(38, 31)
@@ -429,7 +432,7 @@ Partial Class frmConfig
         'lblBBEMachGain
         '
         Me.lblBBEMachGain.AutoSize = True
-        Me.lblBBEMachGain.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBEMachGain.ForeColor = System.Drawing.Color.White
         Me.lblBBEMachGain.Location = New System.Drawing.Point(168, 60)
         Me.lblBBEMachGain.Name = "lblBBEMachGain"
         Me.lblBBEMachGain.Size = New System.Drawing.Size(28, 13)
@@ -448,7 +451,7 @@ Partial Class frmConfig
         '
         'Label6
         '
-        Me.Label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Location = New System.Drawing.Point(126, 25)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(34, 32)
@@ -458,7 +461,7 @@ Partial Class frmConfig
         'lblMachFreq
         '
         Me.lblMachFreq.AutoSize = True
-        Me.lblMachFreq.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblMachFreq.ForeColor = System.Drawing.Color.White
         Me.lblMachFreq.Location = New System.Drawing.Point(126, 60)
         Me.lblMachFreq.Name = "lblMachFreq"
         Me.lblMachFreq.Size = New System.Drawing.Size(32, 13)
@@ -477,7 +480,7 @@ Partial Class frmConfig
         '
         'Label4
         '
-        Me.Label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label4.ForeColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(83, 25)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(41, 31)
@@ -487,7 +490,7 @@ Partial Class frmConfig
         'lblBBECFreq
         '
         Me.lblBBECFreq.AutoSize = True
-        Me.lblBBECFreq.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBECFreq.ForeColor = System.Drawing.Color.White
         Me.lblBBECFreq.Location = New System.Drawing.Point(83, 60)
         Me.lblBBECFreq.Name = "lblBBECFreq"
         Me.lblBBECFreq.Size = New System.Drawing.Size(38, 13)
@@ -507,7 +510,7 @@ Partial Class frmConfig
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label3.ForeColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(52, 34)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(17, 13)
@@ -517,17 +520,18 @@ Partial Class frmConfig
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.White
         Me.Label2.Location = New System.Drawing.Point(12, 34)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(19, 13)
+        Me.Label2.Size = New System.Drawing.Size(21, 15)
         Me.Label2.TabIndex = 51
         Me.Label2.Text = "Lo"
         '
         'lblBBEHi
         '
         Me.lblBBEHi.AutoSize = True
-        Me.lblBBEHi.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBEHi.ForeColor = System.Drawing.Color.White
         Me.lblBBEHi.Location = New System.Drawing.Point(48, 60)
         Me.lblBBEHi.Name = "lblBBEHi"
         Me.lblBBEHi.Size = New System.Drawing.Size(25, 13)
@@ -547,10 +551,11 @@ Partial Class frmConfig
         'lblBBELo
         '
         Me.lblBBELo.AutoSize = True
-        Me.lblBBELo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblBBELo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblBBELo.ForeColor = System.Drawing.Color.White
         Me.lblBBELo.Location = New System.Drawing.Point(8, 60)
         Me.lblBBELo.Name = "lblBBELo"
-        Me.lblBBELo.Size = New System.Drawing.Size(25, 13)
+        Me.lblBBELo.Size = New System.Drawing.Size(28, 15)
         Me.lblBBELo.TabIndex = 48
         Me.lblBBELo.Text = "0db"
         '
@@ -566,8 +571,8 @@ Partial Class frmConfig
         '
         'Button9
         '
-        Me.Button9.BackColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Button9.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button9.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.Button9.Font = New System.Drawing.Font("Century Gothic", 8.0!, System.Drawing.FontStyle.Bold)
         Me.Button9.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Button9.Location = New System.Drawing.Point(548, 266)
         Me.Button9.Name = "Button9"
@@ -584,7 +589,7 @@ Partial Class frmConfig
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ControlText
+        Me.BackColor = System.Drawing.Color.Black
         Me.ClientSize = New System.Drawing.Size(667, 464)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.GroupBox1)
