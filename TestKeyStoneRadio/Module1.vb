@@ -54,7 +54,7 @@
     Declare Function GetHeadroom Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
     Declare Function MotQuery Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
     Declare Unicode Sub GetImage Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal ImageFileName As String)
-    Declare Function GetApplicationType Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal index As Int32) As SByte
+    Declare Function GetApplicationType Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal index As Int32) As Int16
     Declare Sub MotReset Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
     Declare Function GetProgramInfo Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean
@@ -103,7 +103,7 @@
     Declare Function GetHeadroom Lib "keystonecomm.dll" () As SByte
     Declare Function MotQuery Lib "keystonecomm.dll" () As Boolean
     Declare Unicode Sub GetImage Lib "keystonecomm.dll" (ByVal ImageFileName As String)
-    Declare Function GetApplicationType Lib "keystonecomm.dll" (ByVal index As Int32) As SByte
+    Declare Function GetApplicationType Lib "keystonecomm.dll" (ByVal index As Int32) As Int16
     Declare Sub MotReset Lib "keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "keystonecomm.dll" () As SByte
     Declare Function GetProgramInfo Lib "keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean

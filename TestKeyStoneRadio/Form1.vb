@@ -23,15 +23,12 @@ Public Class Form1
     Public Const MOT_HEADER_MODE As SByte = 0
     Public Const MOT_DIRECTORY_MODE As SByte = 1
 
-    Public Const KSApplicationType_SLS = 0
-    Public Const KSApplicationType_BWS = 1
-    Public Const KSApplicationType_TPEG = 2
-    Public Const KSApplicationType_DGPS = 3
-    Public Const KSApplicationType_TMC = 4
-    Public Const KSApplicationType_EPG = 5
-    Public Const KSApplicationType_JAVA = 6     'DAB Java
-    Public Const KSApplicationType_DMB = 7
-    Public Const KSApplicationType_PUSH = 8     'Push Radio
+    Public Const KSApplicationType_SLS = 2
+    Public Const KSApplicationType_TPEG = 4
+    Public Const KSApplicationType_SPI = 7
+    Public Const KSApplicationType_DMB = 9
+    Public Const KSApplicationType_FILECASTING = &HD
+    Public Const KSApplicationType_JOURNALINE = &H44A
     Public Const KSApplicationType_UNKNOWN = -1
 
     Public BBEOn As Byte   ' 0=off, 1=BBE, 2=EQ
@@ -69,7 +66,7 @@ Public Class Form1
 
     Private statRet As Boolean
 
-    Private currentAppType As SByte
+    Private currentAppType As Integer
     Private trd As Thread
     Private radiomode As SByte
     Private radiostatus As SByte
@@ -246,26 +243,9 @@ Public Class Form1
                     Case 11
                         If SetBBEOn = 2 Then        ' This is EQ Mode, Bass Boost, Jazz, Live, Vocal, Acoustic
                             statRet = SetBBEEQ(SetBBEOn, SetEQMode, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-                        ElseIf SetBBEOn = 1 Then    ' This is BBE Mode
-                            If SetBBEMachQ = 0 Then SetBBEMachQ = 1 ' When setting MachQ must be only 1 or 3, 0 will cause weird behavior
-                            If SetBBEMachFreq = 0 Then SetBBEMachFreq = &H3C ' Need to be more than &h3C or else it will cause weird behavior
-
-                            statRet = SetBBEEQ(SetBBEOn, 0, SetBBELo, SetBBEHi, SetBBECFreq, SetBBEMachFreq, SetBBEMachGain, SetBBEMachQ, SetBBESurr, SetBBEMp, SetBBEHpF, SetBBEHiMode)
-                            BBEOn = SetBBEOn
-                            EQMode = SetEQMode
-                            BBELo = SetBBELo
-                            BBEHi = SetBBEHi
-                            BBECFreq = SetBBECFreq
-                            BBEMachFreq = SetBBEMachFreq
-                            BBEMachGain = SetBBEMachGain
-                            BBEMachQ = SetBBEMachQ
-                            BBESurr = SetBBESurr
-                            BBEMp = SetBBEMp
-                            BBEHpF = SetBBEHpF
-                            BBEHiMode = SetBBEHiMode
                         Else    ' Both EQ and BBE OFF
-                            statRet = SetBBEEQ(0, 0, SetBBELo, SetBBEHi, SetBBECFreq, SetBBEMachFreq, SetBBEMachGain, SetBBEMachQ, SetBBESurr, SetBBEMp, SetBBEHpF, SetBBEHiMode)
-                            'statRet = SetBBEEQ(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+                            'statRet = SetBBEEQ(0, 0, SetBBELo, SetBBEHi, SetBBECFreq, SetBBEMachFreq, SetBBEMachGain, SetBBEMachQ, SetBBESurr, SetBBEMp, SetBBEHpF, SetBBEHiMode)
+                            statRet = SetBBEEQ(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
                         End If
                     Case 12
                         SetHeadroom(Math.Abs(SetHR))
@@ -294,7 +274,8 @@ Public Class Form1
                 programRadioText = "Searching DAB channels..."
                 ScrollStatic = True
 
-                If DABAutoSearch(0, 40) = True Then
+                ' For Sydney, scanning 16-18 index covers all stations. 9A-9C 
+                If DABAutoSearch(16, 18) = True Then
                     programNameText = "Please Wait"
                     programRadioText = "Searching DAB channels..."
                     programtype = 0
@@ -550,8 +531,11 @@ Public Class Form1
 
                 If programTextStatus = 0 Then
                     programRadioText = Trim(programText)
-                    'Debug.Print(programRadioText)
-
+                    strength = GetSignalStrength(signalbiterror)
+                    radiostatus = GetPlayStatus
+                    Debug.Print(Now.ToLongDateString() & ", " & Now.ToLongTimeString() & " (SIGNAL=" & strength & ", STATUS=" & radiostatus & ") NEW TEXT = " & programRadioText)
+                    'ElseIf programTextStatus = 1 Then
+                    'Debug.Print(Now.ToLongDateString() & ", " & Now.ToLongTimeString() & " TEXTSTATUS - " & programTextStatus)
                 End If
 
                 If programTextStatus = -1 Then
@@ -579,11 +563,11 @@ Public Class Form1
                         FoundNewSlideShow = True
 #If DEBUG Then
                         strDebug = Now.ToLongTimeString()
-                        strDebug = strDebug & " " & ImageFilename & " -- " & programNameText
-                        Debug.Print(strDebug)
+                        strDebug = Now.ToLongDateString() & ", " & strDebug & " SLIDESHOW - " & ImageFilename & " -- " & programNameText
+                        'Debug.Print(strDebug)
 #End If
                     End If
-                ElseIf (currentAppType = KSApplicationType_EPG) Then
+                    '              ElseIf (currentAppType = KSApplicationType_EPG) Then
                     'EPG Support in the future
 
 
@@ -591,8 +575,8 @@ Public Class Form1
                     currentAppType = GetApplicationType(channel)
                     If (currentAppType = KSApplicationType_SLS) Then
                         MotReset(MOT_HEADER_MODE)
-                    ElseIf (currentAppType = KSApplicationType_EPG) Then
-                        MotReset(MOT_DIRECTORY_MODE)
+                        'ElseIf (currentAppType = KSApplicationType_EPG) Then
+                        '   MotReset(MOT_DIRECTORY_MODE)
                     End If
                 End If
 
@@ -633,22 +617,16 @@ Public Class Form1
         Select Case currentAppType
             Case KSApplicationType_SLS
                 lblSLS.Text = "SLS"
-            Case KSApplicationType_BWS
-                lblSLS.Text = "BWS"
             Case KSApplicationType_TPEG
                 lblSLS.Text = "TPEG"
-            Case KSApplicationType_DGPS
-                lblSLS.Text = "DGPS"
-            Case KSApplicationType_TMC
-                lblSLS.Text = "TMC"
-            Case KSApplicationType_EPG
-                lblSLS.Text = "EPG"
-            Case KSApplicationType_JAVA
-                lblSLS.Text = "JAVA"
             Case KSApplicationType_DMB
                 lblSLS.Text = "DMB"
-            Case KSApplicationType_PUSH     'Push Radio
-                lblSLS.Text = "PUSH"
+            Case KSApplicationType_SPI
+                lblSLS.Text = "SPI"
+            Case KSApplicationType_FILECASTING
+                lblSLS.Text = "FILECASTING"
+            Case KSApplicationType_JOURNALINE
+                lblSLS.Text = "JOURNALINE"
             Case Else
                 lblSLS.Text = ""
         End Select
