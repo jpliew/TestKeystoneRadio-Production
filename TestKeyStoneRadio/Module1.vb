@@ -15,53 +15,53 @@
 
 #If DEBUG Then
     ' Point the DLL to the KeyStoneCOMM DLL Debug folder if you wish to debug both DLL and VB app at the same time.
-    Declare Function CommVersion Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Int32
-    Declare Function OpenRadioPort Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal port As String, ByVal usehardmute As Boolean) As Boolean
-    Declare Function HardResetRadio Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
-    Declare Function CloseRadioPort Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
-    Declare Function PlayStream Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal channel As Int32) As Boolean
-    Declare Function StopStream Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
-    Declare Function SetVolume Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal volume As SByte) As Boolean
-    Declare Function IsSysReady Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
-    Declare Function VolumePlus Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function VolumeMinus Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Sub VolumeMute Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" ()
-    Declare Function GetVolume Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function GetPlayMode Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function GetPlayStatus Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function GetTotalProgram Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Int32
-    Declare Function NextStream Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
-    Declare Function PrevStream Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
-    Declare Function GetPlayIndex Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Int32
-    Declare Function GetSignalStrength Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByRef biterror As Integer) As SByte
-    Declare Function GetProgramType Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal dabIndex As Int32) As SByte
-    Declare Unicode Function GetProgramText Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal programText As String) As SByte
-    Declare Unicode Function GetProgramName Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal dabIndex As Int32, ByVal namemode As SByte, ByVal programName As String) As Boolean
-    Declare Unicode Function GetPreset Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal presetindex As SByte) As Int32
-    Declare Unicode Function SetPreset Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal presetindex As SByte, ByVal channel As Int32) As Boolean
-    Declare Function DABAutoSearch Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal startindex As Byte, ByVal endindex As Byte) As Boolean
-    Declare Function DABAutoSearchNoClear Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal startindex As Byte, ByVal endindex As Byte) As Boolean
-    Declare Unicode Function GetEnsembleName Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal dabIndex As Int32, ByVal namemode As SByte, ByVal programName As String) As Boolean
-    Declare Function GetDataRate Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Int16
-    Declare Function SetStereoMode Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte) As Boolean
-    Declare Function GetFrequency Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function GetStereoMode Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function GetStereo Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function ClearDatabase Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
-    Declare Function SetBBEEQ Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal BBEOn As Byte, ByVal EQMode As Byte, ByVal BBELo As Byte, ByVal BBEHi As Byte, ByVal BBECFreq As Byte, ByVal BBEMachFreq As Byte, ByVal BBEMachGain As Byte, ByVal BBEMachQ As Byte, ByVal BBESurr As Byte, ByVal BBEMp As Byte, ByVal BBEHpF As Byte, ByVal BBEHiMode As Byte) As Boolean
-    Declare Function GetBBEEQ Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByRef BBEOn As Byte, ByRef EQMode As Byte, ByRef BBELo As Byte, ByRef BBEHi As Byte, ByRef BBECFreq As Byte, ByRef BBEMachFreq As Byte, ByRef BBEMachGain As Byte, ByRef BBEMachQ As Byte, ByRef BBESurr As Byte, ByRef BBEMp As Byte, ByRef BBEHpF As Byte, ByRef BBEHiMode As Byte) As Boolean
-    Declare Function SetHeadroom Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal headroom As SByte) As Boolean
-    Declare Function GetHeadroom Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function MotQuery Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Boolean
-    Declare Unicode Sub GetImage Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal ImageFileName As String)
-    Declare Function GetApplicationType Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal index As Int32) As Int16
-    Declare Sub MotReset Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal mode As SByte)
-    Declare Function GetDABSignalQuality Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As SByte
-    Declare Function GetProgramInfo Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean
-    Declare Function GetServCompType Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal index As Int32) As SByte
-    Declare Function SyncRTC Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByVal sync As Boolean) As Boolean
-    Declare Function GetRTC Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
-    Declare Function GetSamplingRate Lib "C:\Documents and Settings\user\My Documents\Visual Studio 2008\Projects\KeyStoneCOMM\Debug\keystonecomm.dll" () As Int16
+    Declare Function CommVersion Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Int32
+    Declare Function OpenRadioPort Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal port As String, ByVal usehardmute As Boolean) As Boolean
+    Declare Function HardResetRadio Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    Declare Function CloseRadioPort Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    Declare Function PlayStream Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal channel As Int32) As Boolean
+    Declare Function StopStream Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    Declare Function SetVolume Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal volume As SByte) As Boolean
+    Declare Function IsSysReady Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    Declare Function VolumePlus Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function VolumeMinus Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Sub VolumeMute Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" ()
+    Declare Function GetVolume Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function GetPlayMode Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function GetPlayStatus Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function GetTotalProgram Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Int32
+    Declare Function NextStream Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    Declare Function PrevStream Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    Declare Function GetPlayIndex Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Int32
+    Declare Function GetSignalStrength Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByRef biterror As Integer) As SByte
+    Declare Function GetProgramType Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal dabIndex As Int32) As SByte
+    Declare Unicode Function GetProgramText Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal programText As String) As SByte
+    Declare Unicode Function GetProgramName Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal dabIndex As Int32, ByVal namemode As SByte, ByVal programName As String) As Boolean
+    Declare Unicode Function GetPreset Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal presetindex As SByte) As Int32
+    Declare Unicode Function SetPreset Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte, ByVal presetindex As SByte, ByVal channel As Int32) As Boolean
+    Declare Function DABAutoSearch Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal startindex As Byte, ByVal endindex As Byte) As Boolean
+    Declare Function DABAutoSearchNoClear Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal startindex As Byte, ByVal endindex As Byte) As Boolean
+    Declare Unicode Function GetEnsembleName Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal dabIndex As Int32, ByVal namemode As SByte, ByVal programName As String) As Boolean
+    Declare Function GetDataRate Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Int16
+    Declare Function SetStereoMode Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte) As Boolean
+    Declare Function GetFrequency Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function GetStereoMode Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function GetStereo Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function ClearDatabase Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    Declare Function SetBBEEQ Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal BBEOn As Byte, ByVal EQMode As Byte, ByVal BBELo As Byte, ByVal BBEHi As Byte, ByVal BBECFreq As Byte, ByVal BBEMachFreq As Byte, ByVal BBEMachGain As Byte, ByVal BBEMachQ As Byte, ByVal BBESurr As Byte, ByVal BBEMp As Byte, ByVal BBEHpF As Byte, ByVal BBEHiMode As Byte) As Boolean
+    Declare Function GetBBEEQ Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByRef BBEOn As Byte, ByRef EQMode As Byte, ByRef BBELo As Byte, ByRef BBEHi As Byte, ByRef BBECFreq As Byte, ByRef BBEMachFreq As Byte, ByRef BBEMachGain As Byte, ByRef BBEMachQ As Byte, ByRef BBESurr As Byte, ByRef BBEMp As Byte, ByRef BBEHpF As Byte, ByRef BBEHiMode As Byte) As Boolean
+    Declare Function SetHeadroom Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal headroom As SByte) As Boolean
+    Declare Function GetHeadroom Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function MotQuery Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    Declare Unicode Sub GetImage Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal ImageFileName As String)
+    Declare Function GetApplicationType Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal index As Int32) As Int16
+    Declare Sub MotReset Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte)
+    Declare Function GetDABSignalQuality Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
+    Declare Function GetProgramInfo Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean
+    Declare Function GetServCompType Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal index As Int32) As SByte
+    Declare Function SyncRTC Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal sync As Boolean) As Boolean
+    Declare Function GetRTC Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
+    Declare Function GetSamplingRate Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Int16
 
 #Else
     Declare Function CommVersion Lib "keystonecomm.dll" () As Int32

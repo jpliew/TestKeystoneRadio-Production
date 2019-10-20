@@ -750,9 +750,9 @@ Public Class Form1
             Dim volimage As Image
             Dim imagename As String
 
-            imagename = "..\..\images\vol" & volume & ".png"
+            imagename = "..\..\..\images\vol" & volume & ".png"
             If Not File.Exists(imagename) Then
-                imagename = "..\..\images\vol" & volume - 1 & ".png"
+                imagename = "..\..\..\images\vol" & volume - 1 & ".png"
             End If
             volimage = Image.FromFile(imagename)
             imgVolume.Image = volimage
@@ -761,9 +761,9 @@ Public Class Form1
         If StereoStatus > -1 Then
             Dim stereoimg As Image
             If StereoStatus = 0 Or StereoStatus = 1 Or StereoStatus = 2 Then
-                stereoimg = Image.FromFile("..\..\images\stereo.png")
+                stereoimg = Image.FromFile("..\..\..\images\stereo.png")
             Else
-                stereoimg = Image.FromFile("..\..\images\mono.png")
+                stereoimg = Image.FromFile("..\..\..\images\mono.png")
             End If
             imgStereo.Image = stereoimg
         End If
