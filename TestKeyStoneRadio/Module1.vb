@@ -55,6 +55,8 @@
     Declare Function MotQuery Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
     Declare Unicode Sub GetImage Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal ImageFileName As String)
     Declare Function GetApplicationType Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal index As Int32) As Int16
+    Declare Function GetApplicationData Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Int16
+    Declare Function SetApplicationType Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal index As UInt16) As Int16
     Declare Sub MotReset Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
     Declare Function GetProgramInfo Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean
@@ -104,6 +106,8 @@
     Declare Function MotQuery Lib "keystonecomm.dll" () As Boolean
     Declare Unicode Sub GetImage Lib "keystonecomm.dll" (ByVal ImageFileName As String)
     Declare Function GetApplicationType Lib "keystonecomm.dll" (ByVal index As Int32) As Int16
+    Declare Function GetApplicationData Lib "keystonecomm.dll" () As Int16
+    Declare Function SetApplicationType Lib "keystonecomm.dll" (ByVal index As UInt16) As Int16
     Declare Sub MotReset Lib "keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "keystonecomm.dll" () As SByte
     Declare Function GetProgramInfo Lib "keystonecomm.dll" (ByVal dabIndex As UInt32, ByRef ServiceComponentID As Byte, ByRef ServiceID As UInt32, ByRef EnsembleID As UInt16) As Boolean

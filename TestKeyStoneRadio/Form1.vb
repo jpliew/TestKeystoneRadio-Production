@@ -556,17 +556,19 @@ Public Class Form1
 
             If radiomode = 0 Then
                 If (currentAppType = KSApplicationType_SLS) Then
-                    If (MotQuery) Then
-                        programText = Space(400)
-                        GetImage(programText)
-                        ImageFilename = Trim(programText)
-                        FoundNewSlideShow = True
-#If DEBUG Then
-                        strDebug = Now.ToLongTimeString()
-                        strDebug = Now.ToLongDateString() & ", " & strDebug & " SLIDESHOW - " & ImageFilename & " -- " & programNameText
-                        'Debug.Print(strDebug)
-#End If
-                    End If
+                    GetApplicationData()
+
+                    '                    If (MotQuery) Then
+                    '                    programText = Space(400)
+                    '                    GetImage(programText)
+                    '                    ImageFilename = Trim(programText)
+                    '                    FoundNewSlideShow = True
+                    '#If DEBUG Then
+                    '                    strDebug = Now.ToLongTimeString()
+                    '                    strDebug = Now.ToLongDateString() & ", " & strDebug & " SLIDESHOW - " & ImageFilename & " -- " & programNameText
+                    '                    'Debug.Print(strDebug)
+                    '#End If
+                    '                End If
                     '              ElseIf (currentAppType = KSApplicationType_EPG) Then
                     'EPG Support in the future
 
@@ -575,6 +577,7 @@ Public Class Form1
                     currentAppType = GetApplicationType(channel)
                     If (currentAppType = KSApplicationType_SLS) Then
                         MotReset(MOT_HEADER_MODE)
+                        SetApplicationType(KSApplicationType_SLS)
                         'ElseIf (currentAppType = KSApplicationType_EPG) Then
                         '   MotReset(MOT_DIRECTORY_MODE)
                     End If
