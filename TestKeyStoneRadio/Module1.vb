@@ -52,10 +52,10 @@
     Declare Function GetBBEEQ Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByRef BBEOn As Byte, ByRef EQMode As Byte, ByRef BBELo As Byte, ByRef BBEHi As Byte, ByRef BBECFreq As Byte, ByRef BBEMachFreq As Byte, ByRef BBEMachGain As Byte, ByRef BBEMachQ As Byte, ByRef BBESurr As Byte, ByRef BBEMp As Byte, ByRef BBEHpF As Byte, ByRef BBEHiMode As Byte) As Boolean
     Declare Function SetHeadroom Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal headroom As SByte) As Boolean
     Declare Function GetHeadroom Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
-    Declare Function MotQuery Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
+    'Declare Function MotQuery Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
     Declare Unicode Sub GetImage Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal ImageFileName As String)
     Declare Function GetApplicationType Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal index As Int32) As Int16
-    Declare Function GetApplicationData Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Int16
+    Declare Function GetApplicationData Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Boolean
     Declare Function SetApplicationType Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal index As UInt16) As Int16
     'Declare Sub MotReset Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As SByte
@@ -103,10 +103,10 @@
     Declare Function GetBBEEQ Lib "keystonecomm.dll" (ByRef BBEOn As Byte, ByRef EQMode As Byte, ByRef BBELo As Byte, ByRef BBEHi As Byte, ByRef BBECFreq As Byte, ByRef BBEMachFreq As Byte, ByRef BBEMachGain As Byte, ByRef BBEMachQ As Byte, ByRef BBESurr As Byte, ByRef BBEMp As Byte, ByRef BBEHpF As Byte, ByRef BBEHiMode As Byte) As Boolean
     Declare Function SetHeadroom Lib "keystonecomm.dll" (ByVal headroom As SByte) As Boolean
     Declare Function GetHeadroom Lib "keystonecomm.dll" () As SByte
-    Declare Function MotQuery Lib "keystonecomm.dll" () As Boolean
+    'Declare Function MotQuery Lib "keystonecomm.dll" () As Boolean
     Declare Unicode Sub GetImage Lib "keystonecomm.dll" (ByVal ImageFileName As String)
     Declare Function GetApplicationType Lib "keystonecomm.dll" (ByVal index As Int32) As Int16
-    Declare Function GetApplicationData Lib "keystonecomm.dll" () As Int16
+    Declare Function GetApplicationData Lib "keystonecomm.dll" () As Boolean
     Declare Function SetApplicationType Lib "keystonecomm.dll" (ByVal index As UInt16) As Int16
     'Declare Sub MotReset Lib "keystonecomm.dll" (ByVal mode As SByte)
     Declare Function GetDABSignalQuality Lib "keystonecomm.dll" () As SByte
@@ -115,6 +115,7 @@
     Declare Function SyncRTC Lib "keystonecomm.dll" (ByVal sync As Boolean) As Boolean
     Declare Function GetRTC Lib "keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
     Declare Function GetSamplingRate Lib "keystonecomm.dll" () As Int16
+
 #End If
 
 End Module

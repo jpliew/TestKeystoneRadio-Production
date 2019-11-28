@@ -66,7 +66,7 @@ Public Class Form1
 
     Private statRet As Boolean
 
-    Private currentAppType As Integer
+    Private currentAppType As Int16
     Private trd As Thread
     Private radiomode As SByte
     Private radiostatus As SByte
@@ -275,7 +275,7 @@ Public Class Form1
                 ScrollStatic = True
 
                 ' For Sydney, scanning 16-18 index covers all stations. 9A-9C 
-                If DABAutoSearch(16, 18) = True Then
+                If DABAutoSearch(0, 40) = True Then
                     programNameText = "Please Wait"
                     programRadioText = "Searching DAB channels..."
                     programtype = 0
