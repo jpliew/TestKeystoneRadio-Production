@@ -849,6 +849,7 @@ Public Class Form1
 
         If (OpenRadioPort("\\.\" & strCOMPORT, True) = True) Then
             SetStereoMode(1)
+            EnableI2S(True)
             'btnSetting.Enabled = False
             trd.Interrupt()
             firstOpen = True

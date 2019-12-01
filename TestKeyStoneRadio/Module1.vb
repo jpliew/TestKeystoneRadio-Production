@@ -65,6 +65,11 @@
     Declare Function GetRTC Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
     Declare Function GetSamplingRate Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" () As Int16
 
+    Declare Function EnableI2S Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal enable As Boolean) As Boolean
+    Declare Function GPIO_SetFunction Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal pin As SByte, ByVal pinfunction As SByte, ByVal drive As SByte) As Boolean
+    Declare Function GPIO_SetLevel Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal pin As SByte, ByVal level As SByte) As Boolean
+    Declare Function GPIO_GetLevel Lib "C:\Users\JP\source\repos\keystonecomm\Debug\keystonecomm.dll" (ByVal pin As SByte, ByRef level As SByte) As Boolean
+
 #Else
     Declare Function CommVersion Lib "keystonecomm.dll" () As Int32
     Declare Function OpenRadioPort Lib "keystonecomm.dll" (ByVal port As String, ByVal usehardmute As Boolean) As Boolean
@@ -115,6 +120,11 @@
     Declare Function SyncRTC Lib "keystonecomm.dll" (ByVal sync As Boolean) As Boolean
     Declare Function GetRTC Lib "keystonecomm.dll" (ByRef sec As Byte, ByRef min As Byte, ByRef hour As Byte, ByRef day As Byte, ByRef month As Byte, ByRef year As Byte) As Boolean
     Declare Function GetSamplingRate Lib "keystonecomm.dll" () As Int16
+
+    Declare Function EnableI2S Lib "keystonecomm.dll" (ByVal enable As Boolean) As Boolean
+    Declare Function GPIO_SetFunction Lib "keystonecomm.dll" (ByVal pin As SByte, ByVal pinfunction As SByte, ByVal drive As SByte) As Boolean
+    Declare Function GPIO_SetLevel Lib "keystonecomm.dll" (ByVal pin As SByte, ByVal level As SByte) As Boolean
+    Declare Function GPIO_GetLevel Lib "keystonecomm.dll" (ByVal pin As SByte, ByRef level As SByte) As Boolean
 
 #End If
 
