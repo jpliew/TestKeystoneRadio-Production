@@ -11,8 +11,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("TestKeyStoneRadio Pro2")> 
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Sixth Logic (Monkeyboard)")>
-<Assembly: AssemblyProduct("TestKeyStoneRadio Pro2")> 
-<Assembly: AssemblyCopyright("Copyright ©  2019")> 
+<Assembly: AssemblyProduct("TestKeyStoneRadio Pro2")>
+<Assembly: AssemblyCopyright("Copyright ©  2023")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("3.0.0.2")>
-<Assembly: AssemblyFileVersion("3.0.0.2")>
+<Assembly: AssemblyVersion("3.0.0.3")>
+<Assembly: AssemblyFileVersion("3.0.0.3")>

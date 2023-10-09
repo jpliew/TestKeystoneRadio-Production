@@ -31,6 +31,8 @@ Public Class Form1
     Public Const KSApplicationType_JOURNALINE = &H44A
     Public Const KSApplicationType_UNKNOWN = -1
 
+    Public Const DABLISTSIZE = 255
+
     Public BBEOn As Byte   ' 0=off, 1=BBE, 2=EQ
     Public EQMode As Byte
     Public BBELo As Byte
@@ -101,7 +103,7 @@ Public Class Form1
     Private FMPreset(10) As Long
     'Private DABPreset(10) As Long
     Private DABPresetName(10) As String
-    Private DABList(100) As String     ' watch this DAB list might get more than 100
+    Private DABList(DABLISTSIZE) As String     ' watch this DAB list might get more than 100
     Private PresetButtons(10) As Button
     Private totalDABProgram As Integer = 0
     Private firstOpen As Boolean = False
@@ -295,7 +297,7 @@ Public Class Form1
                             End If
                         End If
                         totalDABProgram = GetTotalProgram
-                        'Debug.Print(totalDABProgram)
+                        Debug.Print(totalDABProgram)
 
                     End While
 
@@ -493,6 +495,10 @@ Public Class Form1
                         programRadioText = "Reading channels..."
                         ScrollStatic = True
                         'Debug.Print(Now.Millisecond.ToString)
+
+                        For i = 0 To DABLISTSIZE - 1
+                            DABList(i) = Nothing
+                        Next
 
                         Dim objWriter As New System.IO.StreamWriter("stations.txt")
                         objWriter.WriteLine("ServiceComponentID, ServiceID, EnsembleID, StationName")
@@ -801,6 +807,11 @@ Public Class Form1
         PresetButtons(7) = btnPreset7
         PresetButtons(8) = btnPreset8
         PresetButtons(9) = btnPreset9
+
+        Dim ver = Me.GetType.Assembly.GetName.Version.ToString
+        Dim currenttitle = Me.Text
+        currenttitle = currenttitle & " - version " & ver
+        Me.Text = currenttitle
 
         BBEOn = 0
         EQMode = 0
@@ -1512,5 +1523,9 @@ Public Class Form1
             lblRadioClock.ForeColor = Color.Green
         End If
         lblRadioClock.Text = DateTime.Now.ToString("HH:mm:ss dd/MM/yy")
+    End Sub
+
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
     End Sub
 End Class
